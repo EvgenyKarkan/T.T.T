@@ -33,6 +33,8 @@ void populateGameBoardWithCountOfCells(unsigned int count)
     for (unsigned int i = 0; i < count; i++) {
         struct Cell cell;
         cell.identifier = i + 1;
+        
+        gameBoard.countOfCells = count;
         gameBoard.cells[i].identifier = cell.identifier;
         printf("Cell has a id ==> %d\n", gameBoard.cells[i].identifier);
     }
