@@ -7,27 +7,30 @@
 //
 
 #include <stdio.h>
+#include <assert.h>
 #include "Structures.h"
 
 #pragma mark - Declarations
 
-void populateGameBoard();
+void populateGameBoardWithCountOfCells(unsigned int);
 
 
 int main(int argc, const char * argv[])
 {
-    populateGameBoard();
+    populateGameBoardWithCountOfCells(9);
     
     return 0;
 }
 
 #pragma mark - Populate gameboard
 
-void populateGameBoard()
+void populateGameBoardWithCountOfCells(unsigned int count)
 {
+    assert(count);
+    
     struct Board gameBoard;
     
-    for (unsigned int i = 0; i < 9; i++) {
+    for (unsigned int i = 0; i < count; i++) {
         struct Cell cell;
         cell.identifier = i + 1;
         gameBoard.cells[i].identifier = cell.identifier;

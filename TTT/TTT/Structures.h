@@ -16,6 +16,7 @@ struct Cell {
 };
 
 struct Board {
+    unsigned int countOfCells;
     struct Cell cells[9];
 };
 
