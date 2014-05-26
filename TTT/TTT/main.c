@@ -12,31 +12,32 @@
 
 #pragma mark - Declarations
 
-void populateGameBoardWithCountOfCells(unsigned int);
+void populateGameBoardWithCountOfCells(int64_t count);
 
 
 int main(int argc, const char * argv[])
 {
-    populateGameBoardWithCountOfCells(9);
+    populateGameBoardWithCountOfCells(9); //create gameboard 3*3
     
     return 0;
 }
 
 #pragma mark - Populate gameboard
 
-void populateGameBoardWithCountOfCells(unsigned int count)
+void populateGameBoardWithCountOfCells(int64_t count)
 {
-    assert(count);
+    assert(count != 0);
+    assert(count > 0);
     
     struct Board gameBoard;
     
-    for (unsigned int i = 0; i < count; i++) {
+    for (unsigned int i = 0; i < (int64_t)count; i++) {
         struct Cell cell;
         cell.identifier = i + 1;
         
         gameBoard.countOfCells = count;
         gameBoard.cells[i].identifier = cell.identifier;
-        printf("Cell has a id ==> %d\n", gameBoard.cells[i].identifier);
+        printf("Cell has a id ==> %llu\n", gameBoard.cells[i].identifier);
     }
 }
 

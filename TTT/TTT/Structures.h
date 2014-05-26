@@ -11,13 +11,13 @@
 
 
 struct Cell {
-    unsigned int identifier;
+    int64_t identifier;
     char value;
 };
 
 struct Board {
-    unsigned int countOfCells;
-    struct Cell cells[9];
+    int64_t countOfCells;
+    struct Cell cells[9]; //assume classic tic-tac-toe board 3*3
 };
 
 #endif
