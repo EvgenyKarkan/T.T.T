@@ -10,14 +10,19 @@
 #define TTT_Structures_h
 
 
-struct Cell {
+struct EKCell {
     int64_t identifier;
-    char value;
+    char* value;
 };
 
-struct Board {
+struct EKMatrix {
+    int64_t width;
+    int64_t height;
+};
+
+struct EKBoard {
     int64_t countOfCells;
-    struct Cell cells[9]; //assume classic tic-tac-toe board 3*3
+    struct EKCell cells[3][3]; //assume classic tic-tac-toe board 3*3
 };
 
 #endif

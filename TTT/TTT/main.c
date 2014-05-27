@@ -6,38 +6,59 @@
 //  Copyright (c) 2014 EvgenyKarkan. All rights reserved.
 //
 
+#define ANSI_COLOR_RED     "\x1b[31m"
+#define ANSI_COLOR_GREEN   "\x1b[32m"
+#define ANSI_COLOR_RESET   "\x1b[0m"
+
 #include <stdio.h>
 #include <assert.h>
 #include "Structures.h"
 
+
 #pragma mark - Declarations
 
-void populateGameBoardWithCountOfCells(int64_t count);
+struct EKBoard gameBoardWithMatrix(struct EKMatrix matrix);
 
+
+#pragma mark - Main
 
 int main(int argc, const char * argv[])
 {
-    populateGameBoardWithCountOfCells(9); //create gameboard 3*3
+    struct EKMatrix matrix = {3, 3};
+    struct EKBoard board = gameBoardWithMatrix(matrix); //create gameboard 3*3
+    
+    printf("Count of cells ==> %lld\n", board.countOfCells);
     
     return 0;
 }
 
 #pragma mark - Populate gameboard
 
-void populateGameBoardWithCountOfCells(int64_t count)
+struct EKBoard gameBoardWithMatrix(struct EKMatrix matrix)
 {
-    assert(count != 0);
-    assert(count > 0);
+    assert(matrix.width > 0 && matrix.width != 0);
+    assert(matrix.height > 0 && matrix.height != 0);
     
-    struct Board gameBoard;
+    struct EKBoard gameBoard;
+    gameBoard.countOfCells = matrix.width * matrix.height;
     
-    for (unsigned int i = 0; i < (int64_t)count; i++) {
-        struct Cell cell;
-        cell.identifier = i + 1;
-        
-        gameBoard.countOfCells = count;
-        gameBoard.cells[i].identifier = cell.identifier;
-        printf("Cell has a id ==> %llu\n", gameBoard.cells[i].identifier);
+    int64_t count = 0;
+    
+    for (int64_t i = 0; i < matrix.width; i++) {
+        for (int64_t j = 0; j < matrix.height; j++) {
+            gameBoard.cells[i][j].identifier = ++count;
+            printf("Cell has a id ==> %llu\n", gameBoard.cells[i][j].identifier);
+        }
     }
+    
+//    for (unsigned int i = 0; i < (int64_t)count; i++) {
+//        struct EKCell cell;
+//        cell.identifier = i + 1;
+//        
+//        gameBoard.countOfCells = count;
+//        gameBoard.cells[i].identifier = cell.identifier;
+//        printf(ANSI_COLOR_RED "Cell has a id ==> %llu" ANSI_COLOR_RESET "\n", gameBoard.cells[i].identifier);
+//    }
+    
+    return gameBoard;
 }
-
