@@ -9,10 +9,15 @@
 #ifndef TTT_Structures_h
 #define TTT_Structures_h
 
+struct EKOrigin {
+    int64_t row;
+    int64_t column;
+};
 
 struct EKCell {
+    struct EKOrigin point;
     int64_t identifier;
-    char* value;
+    char *value;
 };
 
 struct EKMatrix {
@@ -22,7 +27,7 @@ struct EKMatrix {
 
 struct EKBoard {
     int64_t countOfCells;
-    struct EKCell cells[3][3]; //assume classic tic-tac-toe board 3*3
+    struct EKCell cells[9]; //assume classic tic-tac-toe board 3*3
 };
 
 #endif

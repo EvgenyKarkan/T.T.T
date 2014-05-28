@@ -6,11 +6,8 @@
 //  Copyright (c) 2014 EvgenyKarkan. All rights reserved.
 //
 
-#define ANSI_COLOR_RED     "\x1b[31m"
-#define ANSI_COLOR_GREEN   "\x1b[32m"
-#define ANSI_COLOR_RESET   "\x1b[0m"
-
 #include <stdio.h>
+#include <stdlib.h>
 #include <assert.h>
 #include "Structures.h"
 
@@ -39,26 +36,25 @@ struct EKBoard gameBoardWithMatrix(struct EKMatrix matrix)
     assert(matrix.width > 0 && matrix.width != 0);
     assert(matrix.height > 0 && matrix.height != 0);
     
-    struct EKBoard gameBoard;
-    gameBoard.countOfCells = matrix.width * matrix.height;
+    struct EKBoard *gameBoard = (struct EKBoard *)malloc(sizeof(struct EKBoard));
+    gameBoard->countOfCells = matrix.width * matrix.height;
     
     int64_t count = 0;
     
     for (int64_t i = 0; i < matrix.width; i++) {
         for (int64_t j = 0; j < matrix.height; j++) {
-            gameBoard.cells[i][j].identifier = ++count;
-            printf("Cell has a id ==> %llu\n", gameBoard.cells[i][j].identifier);
+            ++count;
+            
+            struct EKCell *gameCell = (struct EKCell *)malloc(sizeof(struct EKCell));
+            gameCell->point.row = i + 1;
+            gameCell->point.column = j + 1;
+            gameCell->identifier = count;
+            
+            gameBoard->cells[count] = *gameCell;
+            
+            printf("Cell with ID %lld origin is ==> row %llu _ column %llu\n", gameBoard->cells[count].identifier, gameBoard->cells[count].point.row, gameBoard->cells[count].point.column);
         }
     }
     
-//    for (unsigned int i = 0; i < (int64_t)count; i++) {
-//        struct EKCell cell;
-//        cell.identifier = i + 1;
-//        
-//        gameBoard.countOfCells = count;
-//        gameBoard.cells[i].identifier = cell.identifier;
-//        printf(ANSI_COLOR_RED "Cell has a id ==> %llu" ANSI_COLOR_RESET "\n", gameBoard.cells[i].identifier);
-//    }
-    
-    return gameBoard;
+    return *gameBoard;
 }
