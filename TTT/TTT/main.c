@@ -52,7 +52,9 @@ struct EKBoard gameBoardWithMatrix(struct EKMatrix matrix)
             
             gameBoard->cells[count] = *gameCell;
             
-            printf("Cell with ID %lld origin is ==> row %llu _ column %llu\n", gameBoard->cells[count].identifier, gameBoard->cells[count].point.row, gameBoard->cells[count].point.column);
+            printf("Cell with ID %lld origin is ==> row %llu _ column %llu\n", gameBoard->cells[count].identifier,
+                   gameBoard->cells[count].point.row,
+                   gameBoard->cells[count].point.column);
         }
     }
     
