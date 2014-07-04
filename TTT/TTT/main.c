@@ -22,7 +22,7 @@ struct EKBoard gameBoardWithMatrix(struct EKMatrix matrix);
 int main(int argc, const char * argv[])
 {
     struct EKMatrix matrix = {3, 3};
-    struct EKBoard board = gameBoardWithMatrix(matrix); //create gameboard 3*3
+    struct EKBoard board = gameBoardWithMatrix(matrix); //create gameboard with 3*3 size
     
     printf("Count of cells ==> %lld\n", board.countOfCells);
     
@@ -37,22 +37,30 @@ struct EKBoard gameBoardWithMatrix(struct EKMatrix matrix)
     assert(matrix.height > 0 && matrix.height != 0);
     
     struct EKBoard *gameBoard = (struct EKBoard *)malloc(sizeof(struct EKBoard));
-    gameBoard->countOfCells = matrix.width * matrix.height;
+    assert(gameBoard != NULL);
+    
+    gameBoard->countOfCells   = matrix.width * matrix.height;
     
     int64_t count = 0;
+
+    int64_t matrixWidth  = matrix.width;
+    int64_t matrixHeigth = matrix.height;
     
-    for (int64_t i = 0; i < matrix.width; i++) {
-        for (int64_t j = 0; j < matrix.height; j++) {
+    for (int64_t i = 0; i < matrixWidth; i++) {
+        for (int64_t j = 0; j < matrixHeigth; j++) {
             ++count;
             
             struct EKCell *gameCell = (struct EKCell *)malloc(sizeof(struct EKCell));
-            gameCell->point.row = i + 1;
+            assert(gameCell != NULL);
+            
+            gameCell->point.row    = i + 1;
             gameCell->point.column = j + 1;
-            gameCell->identifier = count;
+            gameCell->identifier   = count;
             
             gameBoard->cells[count] = *gameCell;
             
-            printf("Cell with ID %lld origin is ==> row %llu _ column %llu\n", gameBoard->cells[count].identifier,
+            printf("Cell with ID %lld origin is ==> row %llu _ column %llu\n",
+                   gameBoard->cells[count].identifier,
                    gameBoard->cells[count].point.row,
                    gameBoard->cells[count].point.column);
         }
