@@ -18,6 +18,8 @@ struct EKCell {
     struct EKOrigin point;
     int64_t identifier;
     char *value;
+    char *leftEdge;
+    char *rightEdge;
 };
 
 struct EKMatrix {
@@ -25,9 +27,10 @@ struct EKMatrix {
     int64_t height;
 };
 
-struct EKBoard {
+struct EKGameBoard {
     int64_t countOfCells;
     struct EKCell cells[9]; //assume classic tic-tac-toe board 3*3
+    struct EKMatrix gameboardMatrix;
 };
 
 #endif

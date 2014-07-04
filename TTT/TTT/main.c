@@ -14,15 +14,15 @@
 
 #pragma mark - Declarations
 
-struct EKBoard gameBoardWithMatrix(struct EKMatrix matrix);
+struct EKGameBoard gameBoardWithMatrix(struct EKMatrix matrix);
 
 
 #pragma mark - Main
 
 int main(int argc, const char * argv[])
 {
-    struct EKMatrix matrix = {3, 3};
-    struct EKBoard board = gameBoardWithMatrix(matrix); //create gameboard with 3*3 size
+    struct EKMatrix matrix   = {3, 3};
+    struct EKGameBoard board = gameBoardWithMatrix(matrix); //create gameboard with 3*3 size
     
     printf("Count of cells ==> %lld\n", board.countOfCells);
     
@@ -31,15 +31,15 @@ int main(int argc, const char * argv[])
 
 #pragma mark - Populate gameboard
 
-struct EKBoard gameBoardWithMatrix(struct EKMatrix matrix)
+struct EKGameBoard gameBoardWithMatrix(struct EKMatrix matrix)
 {
     assert(matrix.width > 0 && matrix.width != 0);
     assert(matrix.height > 0 && matrix.height != 0);
     
-    struct EKBoard *gameBoard = (struct EKBoard *)malloc(sizeof(struct EKBoard));
+    struct EKGameBoard *gameBoard = (struct EKGameBoard *)malloc(sizeof(struct EKGameBoard));
     assert(gameBoard != NULL);
     
-    gameBoard->countOfCells   = matrix.width * matrix.height;
+    gameBoard->countOfCells = matrix.width * matrix.height;
     
     int64_t count = 0;
 
@@ -56,6 +56,8 @@ struct EKBoard gameBoardWithMatrix(struct EKMatrix matrix)
             gameCell->point.row    = i + 1;
             gameCell->point.column = j + 1;
             gameCell->identifier   = count;
+            gameCell->leftEdge = "||";
+            gameCell->rightEdge = "||";
             
             gameBoard->cells[count] = *gameCell;
             
@@ -67,4 +69,9 @@ struct EKBoard gameBoardWithMatrix(struct EKMatrix matrix)
     }
     
     return *gameBoard;
+}
+
+void printGameboard(struct EKGameBoard boardToPrint, _Bool tutorialMode)
+{
+    
 }
