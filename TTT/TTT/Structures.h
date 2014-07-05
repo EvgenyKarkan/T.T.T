@@ -30,6 +30,7 @@ struct EKMatrix {
 struct EKGameBoard {
     int64_t countOfCells;
     struct EKCell cells[9]; //assume classic tic-tac-toe board 3*3
+    struct EKCell innerCells[3][3];
     struct EKMatrix gameboardMatrix;
 };
 
