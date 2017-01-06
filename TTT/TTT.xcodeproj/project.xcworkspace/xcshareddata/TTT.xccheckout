@@ -10,29 +10,29 @@
 	<string>TTT</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>6C89DF21-F8B6-48F7-9504-0F6F9E8533F5</key>
+		<key>471598824A53138FB65B2D2489CFC8727FC6D48E</key>
 		<string>https://github.com/EvgenyKarkan/T.T.T.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>TTT/TTT.xcodeproj/project.xcworkspace</string>
+	<string>TTT/TTT.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>6C89DF21-F8B6-48F7-9504-0F6F9E8533F5</key>
+		<key>471598824A53138FB65B2D2489CFC8727FC6D48E</key>
 		<string>../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/EvgenyKarkan/T.T.T.git</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
+	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>6C89DF21-F8B6-48F7-9504-0F6F9E8533F5</string>
+	<string>471598824A53138FB65B2D2489CFC8727FC6D48E</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>6C89DF21-F8B6-48F7-9504-0F6F9E8533F5</string>
+			<string>471598824A53138FB65B2D2489CFC8727FC6D48E</string>
 			<key>IDESourceControlWCCName</key>
 			<string>T.T.T</string>
 		</dict>

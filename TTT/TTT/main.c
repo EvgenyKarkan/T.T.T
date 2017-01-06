@@ -28,6 +28,8 @@ int main(int argc, const char *argv[])
     
     printGameboard(board, false);
     
+    printf("%d %s", argc, argv[0]);
+    
     return 0;
 }
 
@@ -95,6 +97,8 @@ static inline void printGameboard(struct EKGameBoard boardToPrint, _Bool tutoria
                boardToPrint.innerCells[1][i].value,
                boardToPrint.innerCells[2][i].value);
     }
+    
+    printf("%d", tutorialMode);
     
     printf("\n");
 }
